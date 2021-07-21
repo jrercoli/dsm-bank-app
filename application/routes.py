@@ -1,7 +1,5 @@
 from application import app
 from flask import render_template, request, json, jsonify
-# from sklearn import preprocessing
-# from sklearn.preprocessing import OneHotEncoder
 import requests
 import os
 # import numpy
