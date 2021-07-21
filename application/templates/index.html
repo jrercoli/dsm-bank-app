@@ -105,11 +105,22 @@
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">Will the customer subscribe to term-loan?</button>
                          {% if (results) %}
-                            <div class="alert alert-success" role="alert">
-                                 <h4> Customer prediction: {{ results }}  </h4>
-                                 <p> for following features: </p>
-                                 <p> Age: {{age}} Job: {{job}} Marital: {{marital}} Education: {{education}} </p>
-                                 <p> Default: {{default}} Balance: {{balance}} Housing: {{housing}} Loan: {{loan}}</p>
+                            {% if results == 'no' %}
+                                <div class="alert alert-danger" role="alert">
+                            {% else %}
+                                <div class="alert alert-success" role="alert">
+                            {% endif %}
+
+                            <h4> Customer prediction: {{ results }}  </h4>
+                            <p> for following features: </p>
+                            <p> Age: {{age}} Job: {{job}} Marital: {{marital}} Education: {{education}} </p>
+                            <p> Default: {{default}} Balance: {{balance}} Housing: {{housing}} Loan: {{loan}}</p>
+                            </div>
+                         {% endif %}
+
+                         {% if conn_exception %}
+                            <div class="alert alert-danger" role="alert">
+                                {{conn_exception}}
                             </div>
                          {% endif %}
                     </div>
